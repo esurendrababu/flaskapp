@@ -5,17 +5,19 @@ phases:
     runtime-versions:
       python: 3.9
     commands:
-      - echo "Installing test deps"
-      - pip install -r requirements.txt || true
+      - pip install -r requirements.txt
+      - pip install pytest
+
   pre_build:
     commands:
-      - echo "Running tests (if any)"
-      - pytest -q || true
+      - echo "Running tests..."
+      - pytest || true
+
   build:
     commands:
-      - echo "Build step - ready to package"
+      - echo "Packaging app"
 
 artifacts:
   files:
-    - '**/*'            # include repository files in the artifact
+    - '**/*'
   discard-paths: no

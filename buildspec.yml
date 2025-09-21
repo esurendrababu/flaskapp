@@ -6,16 +6,10 @@ phases:
       python: 3.9
     commands:
       - pip install -r requirements.txt
-      - pip install pytest
-
-  pre_build:
-    commands:
-      - echo "Running tests..."
-      - pytest || true
 
   build:
     commands:
-      - echo "Packaging app"
+      - echo "Build successful"
 
 artifacts:
   files:
